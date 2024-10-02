@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'war' // For building WAR files
+}
+
+repositories {
+    mavenCentral() // Repository to fetch dependencies
+}
+
+dependencies {
+    implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0' // Servlet API for web app
+    providedCompile 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+
+    // JUnit 5 dependency for testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+}
+
+test {
+    useJUnitPlatform() // Use JUnit 5 for testing
+}
+
+war {
+    archiveFileName = 'mywebapp.war' // Set the name for the WAR file
+}
